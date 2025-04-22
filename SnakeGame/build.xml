@@ -1,0 +1,17 @@
+<project name="MyAntProject" default="run" basedir=".">
+    <property name="src" value="src"/>
+    <property name="build" value="build"/>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build}"/>
+        <javac srcdir="${src}" destdir="${build}"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="snakegame.SnakeGame" classpath="${build}"/>
+    </target>
+</project>
